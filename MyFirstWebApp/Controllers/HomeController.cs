@@ -8,9 +8,11 @@ namespace MyFirstWebApp.Controllers
 {
     public class HomeController : Controller
     {
-        public string Index()
+        public ViewResult Index()
         {
-            return "Hello, world!";
+            int hour = DateTime.Now.Hour;
+            ViewData["greeting"] = (hour < 12 ? "Good morning" : "Good afternoon");
+            return View();
         }
     }
 }
